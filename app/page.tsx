@@ -1,69 +1,94 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import ServiceCard, { services } from "@/components/ServiceCard";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
+    <>
+      <section className="hero">
+        <div className="hero-content">
+          <p className="subtitle">
+            ● YOUR DIGITAL GROWTH PARTNER
+          </p>
+
           <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
+            Ide besar,
+            <br />
+            <span>dibuat menjadi</span>
+            <br />
+            <span>nyata.</span>
           </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="hero-description">
+            Kami membantu bisnis berkembang dengan solusi
+            digital yang kreatif, fungsional, dan dirancang
+            untuk masa depan.
+          </p>
+
+          <div className="hero-buttons">
+            <Link href="/services" className="button">
+              Jelajahi Layanan ↗
+            </Link>
+
+            <Link href="/about" className="button button-outline">
+              Kenali Kami
+            </Link>
+          </div>
+
+          <p className="hero-note">
+            ✳ Strategi yang tepat. Hasil yang berdampak.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="hero-visual">
+          <div className="hero-circle circle-large"></div>
+          <div className="hero-circle circle-medium"></div>
+          <div className="hero-circle circle-small"></div>
+
+          <div className="hero-logo">Z</div>
+
+          <div className="hero-card hero-card-top">
+            <span className="hero-card-icon">✳</span>
+            <div>
+              <strong>Creative Ideas</strong>
+              <p>Designed with purpose</p>
+            </div>
+          </div>
+
+          <div className="hero-card hero-card-bottom">
+            <span className="hero-card-icon">↗</span>
+            <div>
+              <strong>Digital Growth</strong>
+              <p>Built for the future</p>
+            </div>
+          </div>
+
+          <span className="hero-decoration">+</span>
+          <span className="hero-decoration decoration-top">✳</span>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section">
+        <h2>Layanan Kami</h2>
+        <p>Solusi yang kami tawarkan untuk kebutuhan bisnis.</p>
+
+        <div className="services-grid">
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
+      </section>
+
+      <section className="about-summary">
+        <h2>Mengapa Zone Company?</h2>
+        <p>
+          Kami mengutamakan kreativitas, kemudahan penggunaan,
+          dan teknologi untuk menghasilkan solusi digital.
+        </p>
+
+        <Link href="/about" className="button">
+          Tentang Kami
+        </Link>
+      </section>
+    </>
   );
 }
